@@ -1,0 +1,108 @@
+{%  extends "base.html" %}
+
+{% block title %}
+    CartPage
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('cart.static', filename = 'css/basket.css' )}}">
+{% endblock %}
+
+{% block content %}
+    <!-- <p>BASKET PAGE</p> -->
+
+    <div class="links">
+        <a href="/" style="text-decoration: none">HOME</a>
+        <a href="/shop_page/" style="text-decoration: none">SHOP</a>
+        <a href="/cart/" class="basket-link" style="font-weight: bolder">CART</a>
+        <a href="/contacts/" style="text-decoration: none">CONTACTS</a> 
+
+        <p>{{name}}</p>
+
+        {% if is_admin %}
+            <a href="/admin/" style="text-decoration: none">ADMIN</a>
+        {% else %}
+            <p>You're not admin</p>
+        {% endif %}
+    </div>
+        
+    {% if products %}
+        {% for product in products %}
+            <!-- <br><img src="{{ url_for('shop_page.static', filename = 'img/' + product.name + '.png') }}" alt="{{ product.name }}" class="product-img"><br> -->
+
+            <div id = 'product-{{ product.id }}'>
+                <br><img src= "{{ url_for('shop_page.static', filename= 'img/' + product.name + '.png') }}" alt="{{ product.id }}" class="product-img" ><br>                 
+                <div class="text-conteiner">
+                    <div class="name-space">
+                        <p class="name">{{ product.description }} </p>
+                    </div>
+                    
+
+                    <div class="amount">
+                        <button class= "minus" id = "{{ product.id }}">-</button>
+                        <p class="count">{{ product.count }}</p>
+                        <button class= "plus" id = "{{ product.id }}">+</button>
+
+                        <p class="price">{{ product.final_price }} грн</p>
+                    </div>
+                </div>
+
+                <!-- <div class="processing-conteiner">
+                    <br><button class="processing">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</button>
+                    <br><p class="total-count">{{product.count}}-товари на суму</p>
+                    <br><p class="total-discount">Знижка</p>
+                    <br><p class="total-price">Загальна сума</p>
+                </div> -->
+
+            </div>
+
+            <!-- <div id = 'product-{{ product.id }}'>
+
+                {% if product.name == "IPHONE 14 PLUS PURPLE" %}
+                    <br><img src="{{ url_for('shop_page.static', filename= 'img/2.png') }}" alt="2" class="product-img" ><br>
+        
+                {% elif product.name == "IPHONE 15 PINK" %}
+                    <br><img src="{{ url_for('shop_page.static', filename= 'img/3.png') }}" alt="3" class="product-img"><br>
+
+                {% else  %}
+                    <br><img src="{{ url_for('shop_page.static', filename= 'img/1.png') }}" alt="1" class="product-img" ><br>
+                {% endif %}
+                <div class="text-conteiner"></div>
+                    <div class="text-content">
+                        <div class="button-count">
+                            <p class="name" >{{ product.name }}</p>
+                            <button class= "minus" id = "{{ product.id }}">-</button>
+                            <p class="count">{{ product.count }}</p>
+                            <button class= "plus" id = "{{ product.id }}">+</button>
+                            
+                            <p class="price">{{ product.price }}</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div> -->
+        {% endfor %}
+
+        <div class="processing-conteiner">
+            <br><button class="processing">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</button>
+
+            <br><p class="total-count">0-товари на суму</p>
+            <p class="final-count"></p>
+
+            <br><p class="total-discount">Знижка</p>
+            <p class="final-discount"></p>
+            
+            <br><p class="total-price">Загальна сума</p>
+            <p class="final-price"></p>
+            
+        </div>
+
+    {% else %}
+        <h2>Корзина порожня</h2>
+    {% endif %} 
+
+    <script src= "{{ url_for('cart.static', filename = 'js/deleteCookies.js') }}"></script>
+    <script src= "{{ url_for('cart.static', filename = 'js/plusCookies.js') }}"></script>
+
+{% endblock %}

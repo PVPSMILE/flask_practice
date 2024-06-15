@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %} AuthorizationPage {% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('login.static', filename = 'css/login.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div style='text-align: right; margin-top: 15px; margin-right: 10px;'>
+        <a href="/authorization_page/">AUTHORIZATION</a>
+    </div> 
+
+    <!-- {% for dict in content %}
+        {% if dict['tagname'] == "form" %}
+            <div class="login-container">
+                <form method= "{{dict['method']}}">
+                    {% elif 'true' in dict["label"] %}
+                        <br><label for="{{dict['name']}}">{{dict['label_text']}}</label>
+
+                    {% if "input" in dict["tagname"] %}
+                        <br><input type="text" name = '{{dict["name"]}}'><br>
+                    {% endif %}
+
+                    {% else %}
+                        <div class="button">
+                            <br><button type= 'submit'>{{dict['value']}}</button><br>
+                        </div>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %} -->
+
+    <div class="login-container">
+        <form method="post">
+            <br><label for="name">Login or email</label>
+            <br><input type="text" name = 'name'><br>
+
+            <br><label for="password">Password</label>
+            <br><input type="text" name = 'password'><br>
+
+            <div class="button">
+                <br><button type= 'submit'>SEND</button><br>
+            </div>
+        </form>
+    </div>
+{% endblock %}

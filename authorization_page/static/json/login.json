@@ -1,0 +1,29 @@
+{
+    "content": [
+        {
+            "tagname": "form",
+            "method": "post",
+            "class": "container"
+        },
+
+        {
+            "tagname": "input",
+            "name": "name",
+            "label": "true",
+            "label_text": "Login or email"
+        },
+
+        {
+            "tagname": "input",
+            "name": "password",
+            "label": "true",
+            "label_text": "Password"
+        },
+
+        {
+            "tagname": "button",
+            "value": "SEND"
+        }
+    ]
+    
+}

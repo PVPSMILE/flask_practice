@@ -1,0 +1,149 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a{
+    display: inline;
+    font-size: 16px;
+    color: black;
+    margin: 40px;
+    margin-left: 20px;
+    padding: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transform: translateX(-100%);
+
+}
+
+.links{
+    padding-top: 13px;
+}
+
+.links p {
+    margin: 0;
+    margin-right: 40px;
+    float: right;
+    display: inline;
+
+    font-weight: bolder;
+
+}
+
+.product-img{
+    position: absolute;
+    left: 30px;
+    width: 150px;
+    height: 200px;
+
+    /* border-top: 2px solid black; */
+    /* width: 1000px; */
+}
+
+.name-space{
+    margin-bottom: 0;
+    font-size: 26.5px;
+    font-weight: 700;
+
+    inline-size: 250px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.price{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 70px;
+}
+
+.text-conteiner {
+    border-right: 2px solid black; 
+    padding: 15px; 
+    width: 550px;
+    height: 155px;
+
+    position:relative;
+    left: 160px;
+    bottom: 15px;
+}
+
+p, .minus, .plus, .amount{
+    display: inline;
+    margin: 5px;
+}
+
+.minus, .plus{
+    background-color: #EFCB4A;
+    /* left: 40px; */
+    border: 0.5px solid;
+    font-weight: 700;
+    width: 23px;
+    height: 23px;
+}
+
+.amount{
+    padding-left: 260px;
+    display: flex;
+
+    margin-top: -50px;
+}
+.count{
+    font-weight: 700;
+
+}
+
+h2{
+    text-align: center;
+    padding-top: 50px;
+    
+}
+
+
+.processing-conteiner {
+    position: absolute;
+    top: 30px;
+    right: 110px;
+    text-align: left;
+}
+
+
+.processing-conteiner p, .processing-conteiner button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.processing {
+    display: block;
+    /* margin-bottom: 10px; */
+
+    border-radius: 8px;
+    margin-bottom: 1px;
+    margin-top: -2px;
+    padding-top: 5px;
+
+    width: 280px;
+    height: 60px;
+
+    font-size: 14.5px;
+    font-weight: 600;
+    background-color: #EFCB4A;
+}
+
+/* .processing{
+    border-radius: 8px;
+    margin-bottom: 1px;
+    margin-top: -2px;
+    padding-top: 5px;
+
+    width: 260px;
+    height: 60px;
+
+    font-family: sans-serif;
+
+    border: 1.3px solid black;
+
+    font-size: 14.5px;
+    font-weight: 600;
+    background-color: #EFCB4A;
+} */

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} RegistrationPage {% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'css/reg.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div style='text-align: right; margin-top: 15px; margin-right: 10px;'>
+        <a href="/registration_page/" class="reg-a">REGISTRATION</a>
+    </div> 
+
+    {% if not is_registration %}
+        <div class="container">
+            <form method = 'post' class="main-form">
+                <br><label for="name">Login</label>
+                <br><input type="text" name="name"><br>
+
+                <br><label for="email">Email<label>
+                <br><input type="text" name="email"><br>
+                    
+                <br><label for="password">Password<label>
+                <br><input type="text" name="password"><br>
+
+                <br><label for="password_confirmation">Password confirmation<label>
+                <br><input type="text" name="password_confirmation"><br>
+
+                <div class="button">
+                    <br><button type="submit" class="send-button">SEND</button>
+                </div>           
+            </form>         
+        </div>
+
+    {% else %}
+        <h3 class="message">Ви вже зареєстровані</h3>
+        <a href="/authorization_page/"  style="float: right;">AUTHORIZATION</a>
+    {% endif %}
+
+    <!-- {% if is_auth %}
+        <h3 class="message">Ви вже зареєстровані</h3>
+        <a href="/authorization_page/">AUTHORIZATION</a>
+    
+    {% else %}
+        <div class="container">
+            <form method = 'post' class="main-form">
+                <br><label for="name">Login</label>
+                <br><input type="text" name="name"><br>
+
+                <br><label for="email">Email<label>
+                <br><input type="text" name="email"><br>
+                    
+                <br><label for="password">Password<label>
+                <br><input type="text" name="password"><br>
+
+                <br><label for="password_confirmation">Password confirmation<label>
+                <br><input type="text" name="password_confirmation"><br>
+
+                <div class="button">
+                    <br><button type="submit" class="send-button">SEND</button>
+                </div>           
+            </form>         
+        </div>
+    {% endif %}
+        
+    <div class="popup-window" style= "display: none">
+        <form class = "modal-form" method="post">
+            <p>CONFIRMED</p>
+            <a href="/authorization_page/">AUTHORIZATION</a>
+        </form>
+    </div>    
+
+    <script src="{{ url_for('registration.static', filename = 'js/popWindow.js') }}"></script> -->
+{% endblock %}

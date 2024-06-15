@@ -1,0 +1,85 @@
+{
+    "content": [
+        {
+            "tagname": "img", 
+            "name_img": "img/1.png",
+            "path": "shop_page/static/img/1.png",
+
+            "name": "IPHONE 13 BLUE",
+
+
+            "text": "true",
+            "text_value": "ЄМНІСТЬ:",
+
+            "price": "24 999 грн", 
+
+            "button": "true",
+            "value": "КУПИТИ",
+
+            "amount": "128GB",
+            "amount-2": "256GB",
+            "amount-3": "512GB",
+
+            "stock": "ТОВАР В НАЯВНОСТІ",
+
+            "tick": "img/tick.png", 
+
+            "id": 33
+
+        },
+
+        {
+            "tagname": "img", 
+            "name_img": "img/2.png",
+            "path": "shop_page/static/img/2.png",
+
+            "text": "true",
+            "text_value": "ЄМНІСТЬ:",
+
+            "name": "IPHONE 14 PLUS PURPLE",
+
+            "price": "39 999 грн",
+
+            "button": "true",
+            "value": "КУПИТИ",
+
+            "amount": "128GB",
+            "amount-2": "256GB",
+            "amount-3": "512GB",
+
+            "stock": "ТОВАР В НАЯВНОСТІ",
+
+            "tick": "img/tick.png",
+
+            "id": 34
+        },
+
+        {
+            "tagname": "img", 
+            "name_img": "img/3.png",
+            "path": "shop_page/static/img/3.png",
+
+            "name": "IPHONE 15 PINK",
+
+            "text": "true",
+            "text_value": "ЄМНІСТЬ:",
+
+            "price": "36 999 грн ",
+
+            "amount": "128GB",
+            "amount-2": "256GB",
+            "amount-3": "512GB",
+
+            "button": "true",
+            "value": "КУПИТИ",
+
+            "stock": "ТОВАР В НАЯВНОСТІ",
+
+            "tick": "img/tick.png",
+
+            "id": 35
+        }
+
+
+    ]
+}

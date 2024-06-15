@@ -1,0 +1,40 @@
+{%  extends "base.html" %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('home.static', filename = 'css/home.css' )}}">
+{% endblock %}
+
+{% block content %}
+    <h1>HOME PAGE</h1>
+
+    {% if is_auth == True %}
+        <!-- <form method="post"><button type="submit">Вийти з акаунту</button></form> -->
+
+        <div style=' text-align: left; margin-top: 15px; margin-left: 10px;'>
+            <a href="/" style="font-weight: bolder" >HOME</a>
+            <a href="/shop_page/"  style="text-decoration: none">SHOP</a>
+            <a href="/cart/" class="basket-link" style="text-decoration: none">CART</a>
+            <a href="/contacts/" style="text-decoration: none">CONTACTS</a> 
+
+            <p>{{name}}</p>
+
+            {% if is_admin %}
+                <a href="/admin/" style="text-decoration: none">ADMIN</a>
+            {% else %}
+                <p>You're not admin</p>
+        {% endif %}
+        </div> 
+
+    {% else %} 
+        <!-- <h3 class="message">Ви не авторизованi</h3> -->
+
+        <div style=' text-align: right; margin-top: 15px; margin-right: 10px;'>
+            <a href="/registration_page/" style="font-size: 16.5px;">REGISTRATION</a>
+            <a href="/authorization_page/" style="font-size: 16.5px; margin: 25px">AUTHORIZATION</a>
+        </div>
+    {% endif %}
+{% endblock %}

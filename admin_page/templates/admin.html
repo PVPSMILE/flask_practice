@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}
+    ShopPage
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename = 'css/admin.css') }}">
+{% endblock %}
+
+{% block content %}    
+    <div class="links">
+        <a href="/" style="text-decoration: none">HOME</a>
+        <a href="/shop_page/" style="text-decoration: none">SHOP</a>
+        <a href="/cart/" class="basket-link" style="text-decoration: none">CART</a>
+        <a href="/contacts/" style="text-decoration: none">CONTACTS</a> 
+
+        <p>{{name}}</p>
+
+        {% if is_admin %}
+            <a href="/admin/" style="font-weight: bolder">ADMIN</a>
+        {% else %}
+            <p>You're not admin</p>
+        {% endif %}
+    </div>
+
+    <form method="post" class="add-form">
+        <p class="add-text">ДОДАТИ ПРОДУКТ</p>
+        <button class="new-product">
+            <img src="{{ url_for('admin.static', filename= 'img/add.png') }}" alt="" class="add-img">
+        </button>
+    </form>
+        
+    {% for product in products %}
+        <br><img src="{{ url_for('shop_page.static', filename = 'img/' + product.name + '.png') }}" alt="{{ product.name }}" class="product-img"><br>
+
+        <button id="{{ product.id }}" class="edit-img-btn">
+            <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="edit-img" style="margin-top: 60px;"><br>
+        </button>
+                
+        <div class="text-conteiner"> 
+            <div class="text-content">
+                <p class="name" >{{ product.name }} 
+                    <button class= "edit-name" id="{{ product.id }}">
+                        <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="edit-name-img">
+                    </button>
+                </p>
+
+                <p class="price">{{ product.price }} грн 
+                    <button class="edit-price" id="{{ product.id }}">
+                        <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="edit-price-img">
+                    </button>
+                </p>
+
+                <p class="discount">Знижка {{ product.discount }}% 
+                    <button class="edit-discount" id="{{ product.id }}">
+                        <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="edit-discount-img">
+                    </button>
+                </p>
+
+                <p class="price-2">{{ product.final_price }} грн</p>
+                <button type="submit" class="button" id = "{{ product.id }} ">КУПИТИ</button>
+                
+                <p class="text-img">ЄМНІСТЬ:</p>
+                <button type= 'submit' class="amount">128GB <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="amount-edit"></button>
+                <button type= 'submit' class="amount">256GB <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="amount-edit"></button>
+                <button type= 'submit' class="amount">512GB <img src="{{ url_for('admin.static', filename= 'img/edit.png') }}" class="amount-edit"></button> 
+            </div>
+            
+            <form method="post">
+                <button name= 'del' class="stock" value="{{ product.id }}">ВИДАЛИТИ ТОВАР</button>
+                <img src="{{ url_for('admin.static', filename= 'img/bin.png') }}" alt="" class="bin">
+            </form>
+            
+        </div>
+    {% endfor %}
+
+    <div class = "modal-window" style= "display: none;">
+        <form class = "modal-form" method="post" enctype= "multipart/form-data">
+            <label for="" class = "modal-label"></label>
+            <input type="" accept="" name="" class="input-data">
+            <button class="change-btn" type="submit" value="" name="set-changes">SEND</button>
+        </form>
+    </div>
+
+    <div class="new-product-div" style="display: none;">
+        <form method="post" class="new-product-form" enctype= "multipart/form-data">
+            <p>NEW PRODUCT</p>
+
+            <label for="">IMAGE PRODUCT:</label>
+            <input type="file" name="img" accept= "image/*">
+
+            <label for="">NAME PRODUCT:</label>
+            <input type="text" name="name">
+
+            <label for="">DESCRIPTION PRODUCT:</label>
+            <textarea name="description" id=""></textarea>
+
+            <label for="">PRICE PRODUCT:</label>
+            <input type="number" name="price">
+
+            <label for="">DISCOUNT PRODUCT:</label>
+            <input type="number" name="discount">
+
+            <label for="">COUNT PRODUCT:</label>
+            <input type="number" name="count">
+
+            <button type="submit" name="new-product" value="new">SEND</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('admin.static', filename= 'js/edit.js') }}"></script>
+{% endblock %}

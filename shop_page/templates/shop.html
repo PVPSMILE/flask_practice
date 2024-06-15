@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}
+    ShopPage
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('shop_page.static', filename = 'css/shop.css') }}">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="links">
+        <a href="/" style="text-decoration: none">HOME</a>
+        <a href="/shop_page/" style="font-weight: bolder">SHOP</a>
+        <a href="/cart/" class="basket-link" style="text-decoration: none">CART</a>
+        <a href="/contacts/" style="text-decoration: none">CONTACTS</a> 
+
+        <p>{{name}}</p>
+
+        {% if is_admin %}
+            <a href="/admin/" style="text-decoration: none">ADMIN</a>
+        {% else %}
+            <p>You're not admin</p>
+        {% endif %}
+
+    </div>
+        
+    {% for product in products %}
+
+        <!-- <div class="page"> -->
+            <!-- {% if product.name == "IPHONE 14 PLUS PURPLE" %}
+                <br><img src="{{ url_for('shop_page.static', filename= 'img/2.png') }}" alt="2" class="product-img"><br>
+                
+            {% elif product.name == "IPHONE 15 PINK" %}
+                <br><img src="{{ url_for('shop_page.static', filename= 'img/3.png') }}" alt="3" class="product-img"><br>
+        
+            {% else  %}
+                <br><img src="{{ url_for('shop_page.static', filename= 'img/1.png') }}" alt="1" class="product-img"><br>
+            {% endif %} -->
+
+            <br><img src="{{ url_for('shop_page.static', filename = 'img/' + product.name + '.png') }}" alt="" class="product-img"><br>
+                
+            <div class="text-conteiner">
+                <div class="text-content">
+                    <p class="name" >{{ product.name }}</p>
+                    <p class="price">{{ product.price }} грн</p>
+                    <p class="discount">Знижка {{ product.discount }}%</p>
+                    
+                    <p class="price-2">{{ product.final_price }} грн </p>
+
+                    <button type="submit" class="button" id = "{{ product.id }} "> КУПИТИ </button>
+                
+                    <p class="text-img">ЄМНІСТЬ: </p>
+                    <button type= 'submit' class="amount">128GB</button>
+                    <button type= 'submit' class="amount">256GB</button>
+                    <button type= 'submit' class="amount">512GB</button>
+                
+                </div>
+            
+                <p class="stock">ТОВАР В НАЯВНОСТІ</p>
+                <img src="{{ url_for('shop_page.static', filename= 'img/tick.png') }}" alt="" class="tick">
+            
+            </div>
+        
+        <!-- </div> -->
+    {% endfor %}
+    
+    <!-- <p> {{ name }}</p>
+
+    {% for dict in content %}
+        {% if dict['tagname'] == "img" %}
+            <br><img src="{{ url_for('shop_page.static', filename= dict['name_img']) }}" alt="{{ dict['name_img'] }}"><br>
+
+        {% if dict['text'] == 'true' %}
+            <div class="text-conteiner">
+                <div class="text-content">
+                    <p class="name" >{{dict['name']}}</p>
+                    <p class="price">{{dict['price']}}</p>
+    
+                    <button type="submit" class="button" id = "{{ dict['id'] }} "> {{dict['value']}} </button>
+    
+                    <p class="text-img">{{dict['text_value']}}</p>
+                    <button type= 'submit' class="amount">{{ dict['amount'] }}</button>
+                    <button type= 'submit' class="amount">{{ dict['amount-2'] }}</button>
+                    <button type= 'submit' class="amount">{{ dict['amount-3'] }}</button>
+
+                    <button type= 'submit' class="amount" onclick='selectMemory(this)'>{{ dict['amount'] }}</button>
+                    <button type= 'submit' class="amount" onclick='selectMemory(this)'>{{ dict['amount-2'] }}</button>
+                    <button type= 'submit' class="amount" onclick='selectMemory(this)'>{{ dict['amount-3'] }}</button> 
+
+                </div>
+                
+                <p class="stock">{{ dict['stock'] }}</p>
+                <img src="{{ url_for('shop_page.static', filename= dict['tick']) }}" alt="" class="tick">
+            </div>
+        {% endif %}
+        {% endif %}
+    {% endfor %} -->
+
+    <script src="{{ url_for('shop_page.static', filename = 'js/shop.js') }}" defer></script> 
+
+{% endblock %}

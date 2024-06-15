@@ -1,0 +1,46 @@
+{
+    "title": "RegistrationPage",
+
+    "content": [
+        {
+            "tagname": "form",
+            "method": "post",
+            "class": "container"
+        },
+
+        {
+            "tagname": "input",
+            "name": "name",
+            "label": "true",
+            "label_text": "Login"
+        },
+
+        {
+            "tagname": "input",
+            "name": "email",
+            "label": "true",
+            "label_text": "Email"
+        },
+
+        {
+            "tagname":"input",
+            "name": "password",
+            "label": "true",
+            "label_text": "Password"
+        },
+
+
+        {
+            "tagname":"input",
+            "name": "password_confirmation",
+            "label": "true",
+            "label_text": "Password confirmation"
+        },
+
+        {
+            "tagname": "button",
+            "value": "SEND"
+        }
+    ]
+
+}
