@@ -6,6 +6,8 @@
 
 {% block link %}
     <link rel="stylesheet" href="{{ url_for('cart.static', filename = 'css/basket.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('cart.static', filename = 'css/modal.css' )}}">
+
 {% endblock %}
 
 {% block content %}
@@ -28,7 +30,6 @@
         
     {% if products %}
         {% for product in products %}
-            <!-- <br><img src="{{ url_for('shop_page.static', filename = 'img/' + product.name + '.png') }}" alt="{{ product.name }}" class="product-img"><br> -->
 
             <div id = 'product-{{ product.id }}'>
                 <br><img src= "{{ url_for('shop_page.static', filename= 'img/' + product.name + '.png') }}" alt="{{ product.id }}" class="product-img" ><br>                 
@@ -84,18 +85,32 @@
             </div> -->
         {% endfor %}
 
-        <div class="processing-conteiner">
-            <br><button class="processing">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</button>
+        <form method="post"  class="processing-conteiner" style="display: inline;" onsubmit="return showModal()">
+            <br><button type="submit" class="processing">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</button>
 
-            <br><p class="total-count">0-товари на суму</p>
+            <br><p class="total-count">0 -товари на суму</p>
             <p class="final-count"></p>
 
             <br><p class="total-discount">Знижка</p>
             <p class="final-discount"></p>
             
-            <br><p class="total-price">Загальна сума</p>
+            <br><p class="total-price">Загальна сума {{total}}</p>
             <p class="final-price"></p>
             
+        </form>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span><br>
+                <div style="display: flex; flex-direction: column;">
+                    <span>Name {{current_user.name}}</span>
+                    <span>Your rere</span>
+                    <span>Email: {{current_user.email}}</span>
+                </div>
+                
+                <p id="modal-message"></p>
+                <button id="confirm-btn" onclick="submitForm()">Yes</button>
+                <button onclick="closeModal()">No</button>
+            </div>
         </div>
 
     {% else %}
@@ -104,5 +119,6 @@
 
     <script src= "{{ url_for('cart.static', filename = 'js/deleteCookies.js') }}"></script>
     <script src= "{{ url_for('cart.static', filename = 'js/plusCookies.js') }}"></script>
+    <script src= "{{ url_for('cart.static', filename = 'js/modal.js') }}"></script>
 
 {% endblock %}

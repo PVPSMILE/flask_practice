@@ -1,7 +1,7 @@
-import shop
+from shop import shop
 
 if __name__ == '__main__':
-    shop.shop.run(debug= True)
+    shop.run(debug= True)
 
 
         

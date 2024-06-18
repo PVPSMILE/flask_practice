@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример HTML-таблицы</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Your order:</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Count</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{product.description}}</td>
+                    <td class= "product">{{product.count}}</td>
+                    <td class= "price"> {{product.price}}</td>
+                </tr>    
+                        
+            {% endfor %}
+                <tr>
+                    <td colspan="2">Total price:</td>
+                    <td>{{total}} $</td>
+                </tr>   
+        </tbody>
+    </table>
+    
+</body>
+<script src= "{{ url_for('cart.static', filename = 'js/calc.js') }}"></script>
+
+</html>

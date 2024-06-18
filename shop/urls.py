@@ -12,6 +12,7 @@ registration.add_url_rule(rule= '/registration_page/', view_func= reg_render, me
 login.add_url_rule(rule= '/authorization_page/', view_func= show_login, methods = ['GET', 'POST'])
 shop_page.add_url_rule(rule='/shop_page/', view_func= shop_render, methods = ['GET', 'POST'])
 cart.add_url_rule(rule= '/cart/', view_func= cart_render, methods = ['GET', 'POST'])
+
 admin.add_url_rule(rule= '/admin/', view_func= admin_render, methods = ['GET', 'POST'])
 
 
