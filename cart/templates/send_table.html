@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Пример HTML-таблицы</title>
+    <title>Flask_practice</title>
     <style>
         table {
             border-collapse: collapse;
@@ -34,7 +34,7 @@
                 <tr>
                     <td>{{product.description}}</td>
                     <td class= "product">{{product.count}}</td>
-                    <td class= "price"> {{product.price}}</td>
+                    <td class= "price"> {{ product.final_price }} </td>
                 </tr>    
                         
             {% endfor %}

@@ -2,7 +2,7 @@ import flask
 from flask import request, render_template, redirect
 from flask_login import current_user
 from shop_page.models import Product
-from shop.settings import shop
+import shop.smtp_config 
 
 from flask_mail import Mail, Message
 
@@ -36,9 +36,9 @@ def cart_render():
         if current_user.is_authenticated:
             if request.method == 'POST':
                 recipient = current_user.email  # Здесь указываете адрес получателя
-                subject = 'Пример HTML-таблицы в письме'
-
-                # Загрузка HTML-таблицы из файла send_table.html
+                current_us = 'fewfewfew'
+                user = str(current_user).split('-')[1]
+                subject = f'Order for:  {user}'
             
                 html_body = render_template('send_table.html', products=list_products, total = total)
 

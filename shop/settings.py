@@ -8,13 +8,7 @@ shop = flask.Flask(
     static_url_path= '/shop/'
 )
 
-shop.config['MAIL_SERVER'] = 'smtp.gmail.com' 
-shop.config['MAIL_PORT'] = 587 
-shop.config['MAIL_USE_TLS'] = True 
-shop.config['MAIL_USE_SSL'] = False  
-shop.config['MAIL_USERNAME'] = 'yarikcement@gmail.com'
-shop.config['MAIL_PASSWORD'] = 'vbgh whvc dxqt ucxy'  
-shop.config['MAIL_DEFAULT_SENDER'] = ('Арем', 'yarikcement@gmail.com')  
+
 shop.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 
 db = flask_sqlalchemy.SQLAlchemy(app= shop)
