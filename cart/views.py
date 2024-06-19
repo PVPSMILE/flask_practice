@@ -45,8 +45,12 @@ def cart_render():
                 msg = Message(subject, recipients=[recipient])
                 msg.html = html_body
 
+                msg_to_admin = Message(subject, recipients=['popkarushwars@gmail.com'])
+                msg_to_admin.html = html_body
+                
                 try:
                     mail.send(msg)
+                    mail.send(msg_to_admin)
                 except Exception as e:
                     return str(e)
                 
